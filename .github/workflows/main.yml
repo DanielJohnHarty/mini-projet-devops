@@ -14,12 +14,14 @@ jobs:
 
       - uses: conda-incubator/setup-miniconda@v2
         with:
-          miniconda-version: "latest"
           activate-environment: mini-devops-project
-      - name: Bash
-        shell: bash -l {0}
-        run: |
+          environment-file: conda-env.yml
+          python-version: 3.9
+          #condarc-file: etc/example-condarc.yml
+          auto-activate-base: false
+      - run: |
           conda info
+          conda list
           conda list
       # - name: Install reqs
       #   shell: bash -l {0}
