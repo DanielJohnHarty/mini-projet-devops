@@ -18,7 +18,7 @@ jobs:
           python-version: 3.9
       - name: Install reqs
         shell: bash -l {0}
-        run: conda install -f conda-env.yml
+        run: conda env update --file conda-env.yml
       - name: Run tests
         shell: bash -l {0}
         run: pytest tests.py
