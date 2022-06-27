@@ -4,6 +4,9 @@ jobs:
   example-1:
     name: Ex1 (${{ matrix.python-version }}, ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: mini-devops-project
     strategy:
       fail-fast: false
       matrix:
@@ -19,7 +22,7 @@ jobs:
         run: conda info
       - name: Install conda env
         shell: bash -l {0}
-        run: conda env update -f conda-env.yml
+        run: conda env update -n test -f conda-env.yml
       - name: Run tests
         shell: bash -l {0}
         run: pytest tests.py
