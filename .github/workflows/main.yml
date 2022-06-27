@@ -17,6 +17,9 @@ jobs:
       - name: Conda info
         shell: bash -l {0}
         run: conda info
+      - name: Install conda env
+        shell: bash -l {0}
+        run: conda update -f conda-env.yml
       - name: Run tests
         shell: bash -l {0}
         run: pytest tests.py
