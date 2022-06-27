@@ -12,5 +12,5 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
-    - run: $CONDA/bin/conda env update --file ./mini-devops-projet/environment.yml --name base
-    - run: $CONDA/bin/pytest ./mini-devops-projet/tests.py
+    - run: $CONDA/bin/conda env update --file mini-devops-projet/environment.yml --name base
+    - run: $CONDA/bin/pytest mini-devops-projet/tests.py
