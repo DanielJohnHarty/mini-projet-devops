@@ -14,8 +14,9 @@ jobs:
         with:
           auto-update-conda: true
           python-version: ${{ matrix.python-version }}
-      - run:
-        working-directory: mini-devops-project
+      - name: Move to working dir
+        shell: bash -l {0}
+        run: cd mini-devops-project
       - name: Conda info
         shell: bash -l {0}
         run: conda info
