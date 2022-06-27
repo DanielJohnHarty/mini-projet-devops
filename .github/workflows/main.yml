@@ -21,7 +21,7 @@ jobs:
         run: conda env update --file conda-env.yml
       - name: Run tests
         shell: bash -l {0}
-        run: pytest tests.py
+        run: python -m pytest tests.py
 
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
