@@ -16,18 +16,8 @@ jobs:
           activate-environment: mini-devops-project
           environment-file: conda-env.yml
           python-version: 3.9
-          #condarc-file: etc/example-condarc.yml
-      - run: |
-          conda info
-          conda list
-          conda list
-      # - name: Install reqs
-      #   shell: bash -l {0}
-      #   run: conda env update --file conda-env.yml
-      # - name: Run tests
-      #   shell: bash -l {0}
-      #   run: python -m pytest tests.py
-
+      - name: Run tests
+        run: python -m pytest tests.py
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - run: python -m pytest tests.py
