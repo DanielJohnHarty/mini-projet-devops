@@ -4,9 +4,6 @@ jobs:
   example-1:
     name: Ex1 (${{ matrix.python-version }}, ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
-    defaults:
-      run:
-        working-directory: mini-devops-project
     strategy:
       fail-fast: false
       matrix:
@@ -17,6 +14,8 @@ jobs:
         with:
           auto-update-conda: true
           python-version: ${{ matrix.python-version }}
+      - run:
+        working-directory: mini-devops-project
       - name: Conda info
         shell: bash -l {0}
         run: conda info
