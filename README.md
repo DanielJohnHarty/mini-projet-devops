@@ -9,3 +9,6 @@ A small demonstration to show the implementation of the DevOps concepts and tech
 
 - Activate the environment:
   `conda activate mini-devops-project`
+
+- To run the tests (from project root):
+  `pytest tests.py`
