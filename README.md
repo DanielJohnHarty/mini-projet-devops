@@ -13,7 +13,6 @@ A small demonstration to show the implementation of the DevOps concepts and tech
 - To run the tests (from project root):
   `pytest tests.py`
 
-
 ## Heroku
 
 In order to deploy to Heroku, you'll need a Heroku account and you'll need to install the Heroku-cli on your workstation. 
@@ -40,3 +39,4 @@ You'll need to add this to your Github secrets.
 ```bash
 heroku auth:token
 ```
+
