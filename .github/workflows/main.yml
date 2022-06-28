@@ -3,9 +3,8 @@ name: Run tests
 on: [push]
 
 jobs:
-  build-linux:
+  test:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.9
@@ -14,3 +13,14 @@ jobs:
         python-version: 3.9
     - run: $CONDA/bin/conda env update --file environment.yml --name base
     - run: $CONDA/bin/pytest tests.py
+  #CD part
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}} # Must be set in github-> settings-> secrets for project
+          heroku_app_name: "mini-devops-project" #Must be unique in Heroku
+          heroku_email: "dan.john.harty@gmail.com"
