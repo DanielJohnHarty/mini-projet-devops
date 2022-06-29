@@ -4,6 +4,9 @@ on: [push]
 
 jobs:
   test:
+    defaults:
+      run:
+        working-directory: app
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -15,6 +18,9 @@ jobs:
     - run: python -m pytest tests.py
   #CD part
   deploy:
+    defaults:
+      run:
+        working-directory: app
     needs: test
     runs-on: ubuntu-latest
     steps:
